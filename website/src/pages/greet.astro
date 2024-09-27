@@ -1,0 +1,45 @@
+---
+const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting App</title>
+</head>
+<body>
+    <h1>Greeting App</h1>
+    <form id="greetForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Get Greeting</button>
+    </form>
+    <div id="greeting"></div>
+    <script define:vars={{ API_BASE_URL }}>
+        const form = document.getElementById('greetForm');
+        const greetingDiv = document.getElementById('greeting');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            try {
+                const response = await fetch(`${API_BASE_URL}/greet`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name }),
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                greetingDiv.textContent = data.message;
+            } catch (error) {
+                console.error('Error:', error);
+                greetingDiv.textContent = 'An error occurred while fetching the greeting.';
+            }
+        });
+    </script>
+</body>
+</html>
