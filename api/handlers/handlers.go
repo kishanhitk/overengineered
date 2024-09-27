@@ -9,6 +9,14 @@ import (
 	"kishanhitk/overengineered/models"
 )
 
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+	w.Write([]byte("Welcome to the Greetings API!"))
+}
+
 func GreetHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
@@ -38,7 +46,7 @@ func GreetHandler(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-func GetTotalGreetingsHandler(db *sql.DB) http.HandlerFunc {
+func GetGreetingsCountHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -48,14 +56,14 @@ func GetTotalGreetingsHandler(db *sql.DB) http.HandlerFunc {
 		var count int
 		err := db.QueryRow("SELECT COUNT(*) FROM greetings").Scan(&count)
 		if err != nil {
-			http.Error(w, "Failed to get total greetings", http.StatusInternalServerError)
+			http.Error(w, "Failed to get greetings count", http.StatusInternalServerError)
 			return
 		}
 
 		response := struct {
-			TotalGreetings int `json:"total_greetings"`
+			GreetingsCount int `json:"greetings_count"`
 		}{
-			TotalGreetings: count,
+			GreetingsCount: count,
 		}
 
 		w.Header().Set("Content-Type", "application/json")
