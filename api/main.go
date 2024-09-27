@@ -18,7 +18,18 @@ type GreetingResponse struct {
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Set CORS headers
-		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:4321")
+		allowedOrigins := []string{"http://localhost:4321", "https://overengineered.kishans.in"}
+
+		// Get the origin of the request
+		origin := r.Header.Get("Origin")
+
+		// Check if the origin is allowed
+		for _, allowedOrigin := range allowedOrigins {
+			if origin == allowedOrigin {
+				w.Header().Set("Access-Control-Allow-Origin", origin)
+				break
+			}
+		}
 		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 		w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 
