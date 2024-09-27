@@ -1,4 +1,4 @@
-name: Deploy Go API
+name: Deploy Go API and Astro App
 
 on:
   push:
@@ -15,15 +15,30 @@ jobs:
         with:
           go-version: 1.23
 
-      - name: Test
+      - name: Test Go API
         run: |
           cd api
           go test -v ./...
 
-      - name: Build
+      - name: Build Go API
         run: |
           cd api
           go build -v -o main .
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Astro dependencies
+        run: |
+          cd website
+          bun install
+
+      - name: Build Astro app
+        run: |
+          cd website
+          bun run build
 
       - name: Deploy to Server
         uses: appleboy/scp-action@master
@@ -32,11 +47,11 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: "api/main"
-          target: "/var/www/overengineered/api/"
+          source: "api/main,website/dist"
+          target: "/var/www/overengineered/"
           strip_components: 1
 
-      - name: Restart API
+      - name: Restart Services
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -45,4 +60,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             systemctl restart go-api
+            systemctl restart nginx
             systemctl restart cloudflared
