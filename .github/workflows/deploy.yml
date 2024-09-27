@@ -38,7 +38,10 @@ jobs:
       - name: Build Astro app
         run: |
           cd website
+          echo "PUBLIC_API_BASE_URL=${{ secrets.PUBLIC_API_BASE_URL }}" > .env
           bun run build
+        env:
+          PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL }}
 
       - name: Deploy to Server
         uses: appleboy/scp-action@master
