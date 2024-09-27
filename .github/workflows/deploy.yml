@@ -25,6 +25,7 @@ jobs:
           echo "SSH key length: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | wc -l) lines"
           echo "SSH key start: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | head -n 1)"
           echo "SSH key end: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | tail -n 1)"
+          echo "Decoded SSH key length: $(echo "$DECODED_KEY" | wc -l) lines"
           echo "Key type: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | head -n 1 | cut -d ' ' -f 2)"
 
       - name: Build
@@ -36,7 +37,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY | base64 --decode }}
           port: ${{ secrets.PORT }}
           script: |
             echo "SSH connection successful"
