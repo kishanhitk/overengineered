@@ -38,7 +38,7 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
+		w.Write([]byte("Hello, World!123"))
 	})
 	http.HandleFunc("/greet", greetHandler)
 	fmt.Println("Server is running on http://localhost:8080")
