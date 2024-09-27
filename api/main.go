@@ -56,7 +56,7 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", enableCORS(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!123"))
+		w.Write([]byte("Hello, World!1234"))
 	}))
 	http.HandleFunc("/greet", enableCORS(greetHandler))
 	fmt.Println("Server is running on http://localhost:8080")
