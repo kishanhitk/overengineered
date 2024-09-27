@@ -47,7 +47,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: "api/main,website/dist"
+          source: "api/main,website/dist/**"
           target: "/var/www/overengineered/"
           strip_components: 1
 
@@ -60,5 +60,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             systemctl restart go-api
+            systemctl restart astro-app
             systemctl restart nginx
             systemctl restart cloudflared
