@@ -17,3 +17,4 @@ func SetupRoutes(db *sql.DB) *http.ServeMux {
 
 	return mux
 }
+``
