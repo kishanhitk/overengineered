@@ -25,6 +25,7 @@ jobs:
           echo "SSH key length: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | wc -l) lines"
           echo "SSH key start: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | head -n 1)"
           echo "SSH key end: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | tail -n 1)"
+          echo "Key type: $(echo "${{ secrets.SSH_PRIVATE_KEY }}" | head -n 1 | cut -d ' ' -f 2)"
 
       - name: Build
         run: |
