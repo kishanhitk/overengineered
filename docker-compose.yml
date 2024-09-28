@@ -1,8 +1,6 @@
 services:
   api:
-    build:
-      context: .
-      dockerfile: api/Dockerfile
+    image: ghcr.io/yourusername/yourrepo-api:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -11,15 +9,13 @@ services:
       - REDIS_URL=dicedb:7379
 
   astro-app:
-    build:
-      context: .
-      dockerfile: website/Dockerfile
+    image: ghcr.io/yourusername/yourrepo-astro:latest
     ports:
       - "4321:4321"
     depends_on:
       - api
     environment:
-      - PUBLIC_API_BASE_URL=http://localhost:8080
+      - PUBLIC_API_BASE_URL=http://api:8080
 
   dicedb:
     image: dicedb/dicedb
@@ -36,10 +32,10 @@ services:
       - api
       - astro-app
 
-  # cloudflared:
-  #   image: cloudflare/cloudflared
-  #   command: tunnel run
-  #   environment:
-  #     - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
-  #   depends_on:
-  #     - nginx
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - nginx
