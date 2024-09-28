@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /path/to/your/app
+            cd /var/www/overengineered
             docker-compose pull
             docker-compose up -d
             docker image prune -f
