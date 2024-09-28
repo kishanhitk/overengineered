@@ -1,0 +1,45 @@
+services:
+  go-api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dicedb
+    environment:
+      - REDIS_URL=http://localhost:7379
+
+  astro-app:
+    build:
+      context: .
+      dockerfile: website/Dockerfile
+    ports:
+      - "4321:4321"
+    depends_on:
+      - go-api
+    environment:
+      - PUBLIC_API_BASE_URL=http://localhost:8080
+
+  dicedb:
+    image: dicedb/dicedb
+    ports:
+      - "7379:7379"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - go-api
+      - astro-app
+
+  # cloudflared:
+  #   image: cloudflare/cloudflared
+  #   command: tunnel run
+  #   environment:
+  #     - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+  #   depends_on:
+  #     - nginx

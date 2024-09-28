@@ -5,7 +5,7 @@ import "net/http"
 func EnableCORS(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Set CORS headers
-		allowedOrigins := []string{"http://localhost:4321", "https://overengineered.kishans.in"}
+		allowedOrigins := []string{"http://localhost:4321", "https://overengineered.kishans.in", "http://172.18.0.4:4321"}
 
 		// Get the origin of the request
 		origin := r.Header.Get("Origin")

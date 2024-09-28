@@ -186,6 +186,9 @@ We will also update the DNS records for this new domain.
 
 Now, we will restart all the processes, including ngnix, cf tunnel, and api and astro services. And voila our whole project, including frontend and backedn is now deployed is now deployed on a vps along with ci/cd.
 
+
+Initially the actions script used to build and deploy both api and the astro app wheneever there was a push to main. But, now I have updated it to deploy conditionally. Build and deploy api only if something changed in api directory, similarly for astro app.
+
 ### Add a SQLite DB
 This won't require any change in the infra. We just update our API code to use SQLite and creation of DB will be automatically handled by the go app.
 ### Adding redis (dicedb)
