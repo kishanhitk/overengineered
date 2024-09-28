@@ -16,7 +16,7 @@ const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
         <button type="submit">Get Greeting</button>
     </form>
     <div id="greeting"></div>
-    <script define:vars={{ API_BASE_URL }}>
+    <script define:vars={{ API_BASE_URL }} is:inline>
         const form = document.getElementById('greetForm');
         const greetingDiv = document.getElementById('greeting');
         form.addEventListener('submit', async (e) => {
