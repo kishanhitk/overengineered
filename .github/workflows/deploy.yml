@@ -5,56 +5,53 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  check_changes:
+    runs-on: ubuntu-latest
+    outputs:
+      go_changed: ${{ steps.filter.outputs.go }}
+      astro_changed: ${{ steps.filter.outputs.astro }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            go:
+              - 'api/**'
+            astro:
+              - 'website/**'
+
+  deploy_go:
+    needs: check_changes
+    if: ${{ needs.check_changes.outputs.go_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
-          go-version: 1.23
+          go-version: "1.23"
+          cache: true
 
-      - name: Test Go API
+      - name: Test and Build Go API
         run: |
           cd api
           go test -v ./...
-
-      - name: Build Go API
-        run: |
-          cd api
           go build -v -o main .
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install Astro dependencies
-        run: |
-          cd website
-          bun install
-
-      - name: Build Astro app
-        run: |
-          cd website
-          echo "PUBLIC_API_BASE_URL=${{ secrets.PUBLIC_API_BASE_URL }}" > .env
-          bun run build
-        env:
-          PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL }}
-
-      - name: Deploy to Server
+      - name: Deploy Go API to Server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: "api/main,website/dist/**"
-          target: "/var/www/overengineered/"
+          source: "api/main"
+          target: "/var/www/overengineered/api/"
           strip_components: 1
 
-      - name: Restart Services
+      - name: Restart Go API Service
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -63,6 +60,60 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             systemctl restart go-api
+
+  deploy_astro:
+    needs: check_changes
+    if: ${{ needs.check_changes.outputs.astro_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install and Build Astro app
+        run: |
+          cd website
+          bun install --frozen-lockfile
+          echo "PUBLIC_API_BASE_URL=${{ secrets.PUBLIC_API_BASE_URL }}" > .env
+          bun run build
+        env:
+          PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL }}
+
+      - name: Deploy Astro App to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "website/dist/**"
+          target: "/var/www/overengineered/website/"
+          strip_components: 1
+
+      - name: Restart Astro App Service
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
             systemctl restart astro-app
-            systemctl restart nginx
-            systemctl restart cloudflared
+
+  restart_nginx_cloudflared:
+    needs: [deploy_go, deploy_astro]
+    if: ${{ always() && (needs.deploy_go.result == 'success' || needs.deploy_astro.result == 'success') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restart Nginx and Cloudflared
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            systemctl restart nginx cloudflared
