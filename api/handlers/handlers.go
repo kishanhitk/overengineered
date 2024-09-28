@@ -66,29 +66,34 @@ func GetGreetingsCountHandler(db *sql.DB, rdb *redis.Client) http.HandlerFunc {
 		}
 
 		ctx := context.Background()
-
-		// Get data from Redis
-		start := time.Now()
-		redisCount, err := rdb.Get(ctx, "greetings_count").Int()
-		redisElapsed := time.Since(start)
-		fmt.Printf("Redis count: %d, error: %v, elapsed: %v\n", redisCount, err, redisElapsed)
-
-		// Get data from DB
-		start = time.Now()
-		var dbCount int
-		err = db.QueryRow("SELECT COUNT(*) FROM greetings").Scan(&dbCount)
-		dbElapsed := time.Since(start)
-		fmt.Printf("DB count: %d, error: %v, elapsed: %v\n", dbCount, err, dbElapsed)
-
-		if err != nil {
-			http.Error(w, "Failed to get greetings count", http.StatusInternalServerError)
-			return
+		count, err := rdb.Get(ctx, "greetings_count").Int()
+		// log count
+		fmt.Println("Current greetings count from Redis:", count, err)
+		if err == redis.Nil {
+			// Key doesn't exist in Redis, fetch from DB and set in Redis
+			err = db.QueryRow("SELECT COUNT(*) FROM greetings").Scan(&count)
+			if err != nil {
+				http.Error(w, "Failed to get greetings count", http.StatusInternalServerError)
+				return
+			}
+			// Set the count in Redis with an expiration time (e.g., 1 hour)
+			err = rdb.Set(ctx, "greetings_count", count, time.Hour).Err()
+			if err != nil {
+				fmt.Printf("Failed to set Redis count: %v\n", err)
+			}
+		} else if err != nil {
+			// If Redis fails, fallback to DB
+			err = db.QueryRow("SELECT COUNT(*) FROM greetings").Scan(&count)
+			if err != nil {
+				http.Error(w, "Failed to get greetings count", http.StatusInternalServerError)
+				return
+			}
 		}
 
 		response := struct {
 			GreetingsCount int `json:"current_greetings_count"`
 		}{
-			GreetingsCount: dbCount,
+			GreetingsCount: count,
 		}
 
 		w.Header().Set("Content-Type", "application/json")
