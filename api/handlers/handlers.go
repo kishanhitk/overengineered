@@ -61,7 +61,7 @@ func GetGreetingsCountHandler(db *sql.DB) http.HandlerFunc {
 		}
 
 		response := struct {
-			GreetingsCount int `json:"greetings_count"`
+			GreetingsCount int `json:"current_greetings_count"`
 		}{
 			GreetingsCount: count,
 		}
