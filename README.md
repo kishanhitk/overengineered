@@ -62,3 +62,35 @@ sudo ln -s /etc/nginx/sites-available/api-overengineered.kishans.in.conf /etc/ng
 sudo systemctl reload nginx
 ```
 Now, our ngnix is ready.
+Next, we will setup cloudflare tunnel.
+Why CF Tunnel? Why not simply map the domain to the vps public IP?
+Because the vps device does not have a reserved public IP adrress and it will keep changing. Getting a reserved/fixed IP address is not free, on almost any cloud provider.
+So, we use CF tunnel. It runs on our vps and then we generate some config and add those config details in our CF DNS management and now our server without any reserved IP is accessible via our domain.
+Install cf tunnel
+```
+sudo mkdir -p --mode=0755 /usr/share/keyrings
+curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' | sudo tee /etc/apt/sources.list.d/cloudflared.list
+sudo apt update && sudo apt install cloudflared
+
+
+
+cloudflared tunnel login
+
+cloudflared tunnel create api-overengineered
+```
+create a configuration file in /etc/cloudflared/config.yml. This will tell that tunnel is running on 8082 and if request comes for API, send it to port 8081 where our ngnix server is running.
+```
+url: http://localhost:8082
+tunnel: <tunnel-id>
+credentials-file: /root/.cloudflared/<your-tunnel-id>.json
+
+ingress:
+  - hostname: api.overengineered.kishans.in
+    service: http://localhost:8081
+  - service: http_status:404
+```
+
+Add this CNAME DNS record to our subdomain `<tunnel-id>.cfargotunnel.com`
+And now our go API is accessible to the world on  `api.overengineered.kishans.in`
+Now, to make cloudflare tunnel service
