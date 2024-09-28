@@ -93,4 +93,26 @@ ingress:
 
 Add this CNAME DNS record to our subdomain `<tunnel-id>.cfargotunnel.com`
 And now our go API is accessible to the world on  `api.overengineered.kishans.in`
-Now, to make cloudflare tunnel service
+Now, to make cloudflare tunnel service run automatically and keep it running, we will create a systemd service.
+this config inside `/etc/systemd/system/cloudflared.service`
+```
+[Unit]
+Description=cloudflared
+After=network.target
+
+[Service]
+TimeoutStartSec=0
+Type=notify
+ExecStart=/usr/bin/cloudflared --config /etc/cloudflared/config.yml tunnel run
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+And, then start and enable the cloudflared service:
+```
+sudo systemctl enable cloudflared
+sudo systemctl start cloudflared
+```
