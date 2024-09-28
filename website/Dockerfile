@@ -20,4 +20,4 @@ RUN bun run build
 EXPOSE 4321
 
 # Run the app
-CMD ["bun", "run", "start --host"]
+CMD ["bun", "run", "start"]

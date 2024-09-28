@@ -1,5 +1,5 @@
 services:
-  go-api:
+  api:
     build:
       context: .
       dockerfile: api/Dockerfile
@@ -8,7 +8,7 @@ services:
     depends_on:
       - dicedb
     environment:
-      - REDIS_URL=http://localhost:7379
+      - REDIS_URL=dicedb:7379
 
   astro-app:
     build:
@@ -17,7 +17,7 @@ services:
     ports:
       - "4321:4321"
     depends_on:
-      - go-api
+      - api
     environment:
       - PUBLIC_API_BASE_URL=http://localhost:8080
 
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
-      - go-api
+      - api
       - astro-app
 
   # cloudflared:

@@ -6,6 +6,7 @@ import (
 	"kishanhitk/overengineered/routes"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/go-redis/redis/v8"
 )
@@ -14,9 +15,15 @@ func main() {
 	db := database.InitDB()
 	defer db.Close()
 
+	// Get Redis URL from environment variable
+	redisURL := os.Getenv("REDIS_URL")
+	if redisURL == "" {
+		redisURL = "localhost:7379" // Default value if not set
+	}
+
 	// Initialize Redis client
 	rdb := redis.NewClient(&redis.Options{
-		Addr: "localhost:7379",
+		Addr: redisURL,
 	})
 	defer rdb.Close()
 
