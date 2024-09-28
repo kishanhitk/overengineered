@@ -18,7 +18,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	w.Write([]byte("Welcome to the Greetings API on docker!"))
+	w.Write([]byte("Welcome to the Greetings API on Docker!"))
 }
 
 func GreetHandler(db *sql.DB, rdb *redis.Client) http.HandlerFunc {
