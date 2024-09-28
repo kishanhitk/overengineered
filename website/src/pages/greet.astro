@@ -23,7 +23,7 @@ const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
             e.preventDefault();
             const name = document.getElementById('name').value;
             try {
-                const response = await fetch(`${API_BASE_URL}/greet`, {
+                const response = await fetch(`${API_BASE_URL}/greetings`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
