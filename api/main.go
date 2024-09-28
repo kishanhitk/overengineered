@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-
 	"kishanhitk/overengineered/database"
 	"kishanhitk/overengineered/routes"
+	"log"
+	"net/http"
 
 	"github.com/go-redis/redis/v8"
 )
@@ -17,7 +16,7 @@ func main() {
 
 	// Initialize Redis client
 	rdb := redis.NewClient(&redis.Options{
-		Addr: "localhost:6379",
+		Addr: "localhost:7379",
 	})
 	defer rdb.Close()
 
