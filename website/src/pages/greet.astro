@@ -1,5 +1,9 @@
 ---
 const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+const API_BASE_URL_INTERNAL = import.meta.env.API_BASE_URL_INTERNAL;
+const response = await fetch(API_BASE_URL_INTERNAL + "/greetings/count");
+const count = await response.json();
+const currentGreetingsCount = count.current_greetings_count;
 ---
 
 <!DOCTYPE html>
@@ -11,7 +15,7 @@ const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
 </head>
 <body>
     <h1>Greeting App</h1>
-    <p>Current greetings count: <span id="greetingsCount">Loading...</span></p>
+    <p>Current greetings count: <span id="greetingsCount">{currentGreetingsCount}</span></p>
     <form id="greetForm">
         <label for="name">Enter your name:</label>
         <input type="text" id="name" name="name" required>
@@ -36,9 +40,6 @@ const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
                 greetingsCountSpan.textContent = 'Error loading count';
             }
         }
-
-        // Fetch the initial count
-        fetchGreetingsCount();
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();

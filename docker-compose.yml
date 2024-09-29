@@ -15,7 +15,8 @@ services:
     depends_on:
       - api
     environment:
-      - PUBLIC_API_BASE_URL=http://api:8080
+      - PUBLIC_API_BASE_URL=https://api-overengineered.kishans.in
+      - API_BASE_URL_INTERNAL=http://api:8080
 
   dicedb:
     image: dicedb/dicedb
