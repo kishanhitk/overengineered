@@ -1,0 +1,332 @@
+undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0501] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0501] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0504] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0504] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0507] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0507] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0512] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0512] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0516] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0516] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0522] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0522] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0525] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0525] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0529] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0529] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0535] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0535] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0540] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0540] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0542] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0542] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0548] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0548] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0550] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0550] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0559] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0559] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0578] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0578] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0589] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0589] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0871] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0871] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0872] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0872] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0874] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0874] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0880] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0880] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0885] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0885] TypeError: Cannot read property 'includes' of undefined or null
+d iteratat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_te
+WARN[0886] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0886] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+
+
+running (14m49.0s), 240/300 VUs, 79530 complete and 0 i
+WARN[0889] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0889] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0890] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0890] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0891] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0891] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0892] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0892] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0897] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0897] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0898] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0898] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0903] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0903] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0904] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+WARN[0904] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0904] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0904] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0906] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0906] TypeError: Cannot read property 'includes' of undefined or null
+nterruptat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+
+
+running (15m07.3s), 256/300 VUs, 82294 c
+WARN[0910] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0910] TypeError: Cannot read property 'includes' of undefined or null
+erruptedat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine
+WARN[0913] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0913] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0921] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0921] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0923] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+WARN[0923] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0923] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0923] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0932] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0932] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0936] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0936] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0937] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0937] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0940] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0940] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0942] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0942] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0945] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0945] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0946] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0946] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0948] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0948] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0953] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0953] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0953] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0953] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0957] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0957] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0962] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0962] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0962] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0962] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0963] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0963] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0974] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0974] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0979] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0979] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0981] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0981] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0982] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0982] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0983] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0983] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0987] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+WARN[0987] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0987] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0987] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0993] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": dial: i/o timeout"
+ERRO[0993] TypeError: Cannot read property 'includes' of undefined or null
+ed iteraat response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+        at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+
+     ✗ status is 200
+      ↳  99% — ✓ 154065 / ✗ 382
+     ✗ response body
+      ↳  99% — ✓ 154065 / ✗ 382
+
+     checks.........................: 99.75% ✓ 308130     ✗ 764   
+     data_received..................: 67 MB  49 kB/s
+     data_sent......................: 13 MB  9.5 kB/s
+     http_req_blocked...............: avg=1.33ms   min=0s       med=1µs      max=19.35s   p(90)=1µs      p(95)=2µs   
+     http_req_connecting............: avg=909.92µs min=0s       med=0s       max=19.17s   p(90)=0s       p(95)=0s    
+   ✓ http_req_duration..............: avg=612.57ms min=0s       med=414.68ms max=9.81s    p(90)=924.49ms p(95)=1.15s 
+       { expected_response:true }...: avg=603.2ms  min=340.71ms med=414.29ms max=8.75s    p(90)=921.19ms p(95)=1.12s 
+   ✓ http_req_failed................: 0.24%  ✓ 382        ✗ 154065
+     http_req_receiving.............: avg=432.06µs min=0s       med=70µs     max=544.17ms p(90)=1.2ms    p(95)=1.56ms
+     http_req_sending...............: avg=250.08µs min=0s       med=140µs    max=522.54ms p(90)=254µs    p(95)=308µs 
+     http_req_tls_handshaking.......: avg=418.74µs min=0s       med=0s       max=1.06s    p(90)=0s       p(95)=0s    
+     http_req_waiting...............: avg=611.89ms min=0s       med=413.87ms max=9.81s    p(90)=923.84ms p(95)=1.15s 
+     http_reqs......................: 154447 111.864017/s
+     iteration_duration.............: avg=1.63s    min=1.34s    med=1.41s    max=30.19s   p(90)=1.92s    p(95)=2.17s 
+     iterations.....................: 154447 111.864017/s
+     vus............................: 3      min=1        max=300 
+     vus_max........................: 300    min=300      max=300 
+
+
+running (23m00.7s), 000/300 VUs, 154447 complete and 0 interrupted iterations
+default ✓ [===============================] 000/300 VUs  23m0s
