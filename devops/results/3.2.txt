@@ -1,0 +1,89 @@
+ng-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1147] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1147] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1148] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1148] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1148] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1148] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1148] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1148] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1148] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1148] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+WARN[1148] Request Failed                                error="Post \"https://api-overengineered.kishans.in/greetings\": request timeout"
+ERRO[1148] TypeError: Cannot read property 'includes' of undefined or null
+running at response body (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:33:31(3))
+default at go.k6.io/k6/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///Users/kishan/dev/mine/overengineered/devops/load_test.js:31:8(31))  executor=ramping-vus scenario=default source=stacktrace
+
+     ✗ status is 200
+      ↳  91% — ✓ 82516 / ✗ 7676
+     ✗ response body
+      ↳  91% — ✓ 82516 / ✗ 7676
+
+     checks.........................: 91.48% ✓ 165032    ✗ 15352
+     data_received..................: 40 MB  29 kB/s
+     data_sent......................: 7.8 MB 5.6 kB/s
+     http_req_blocked...............: avg=2.57ms   min=0s       med=1µs      max=22.28s   p(90)=2µs    p(95)=2µs   
+     http_req_connecting............: avg=1.55ms   min=0s       med=0s       max=19.23s   p(90)=0s     p(95)=0s    
+   ✗ http_req_duration..............: avg=1.77s    min=0s       med=546.5ms  max=59.99s   p(90)=3.6s   p(95)=5.59s 
+       { expected_response:true }...: avg=1.53s    min=393.14ms med=544.11ms max=45.33s   p(90)=2.54s  p(95)=4.43s 
+   ✗ http_req_failed................: 8.51%  ✓ 7676      ✗ 82516
+     http_req_receiving.............: avg=12.75ms  min=0s       med=96µs     max=7.18s    p(90)=3.21ms p(95)=9.72ms
+     http_req_sending...............: avg=255.15µs min=0s       med=189µs    max=339.35ms p(90)=350µs  p(95)=413µs 
+     http_req_tls_handshaking.......: avg=1.01ms   min=0s       med=0s       max=4.18s    p(90)=0s     p(95)=0s    
+     http_req_waiting...............: avg=1.75s    min=0s       med=541.81ms max=59.99s   p(90)=3.59s  p(95)=5.58s 
+     http_reqs......................: 90192  65.334248/s
+     iteration_duration.............: avg=2.8s     min=1.38s    med=1.54s    max=1m0s     p(90)=4.64s  p(95)=6.61s 
+     iterations.....................: 90192  65.334248/s
+     vus............................: 3      min=1       max=300
+     vus_max........................: 300    min=300     max=300
+
+
+running (23m00.5s), 000/300 VUs, 90192 complete and 2 interrupted iterations
+default ✓ [======================================] 000/300 VUs  23m0s
+ERRO[1382] thresholds on metrics 'http_req_duration, http_req_failed' have been crossed 
