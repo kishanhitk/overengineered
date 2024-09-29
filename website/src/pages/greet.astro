@@ -4,6 +4,7 @@ const API_BASE_URL_INTERNAL = import.meta.env.API_BASE_URL_INTERNAL;
 const response = await fetch(API_BASE_URL_INTERNAL + "/greetings/count");
 const count = await response.json();
 const currentGreetingsCount = count.current_greetings_count;
+export const prerender = false;
 ---
 
 <!DOCTYPE html>
