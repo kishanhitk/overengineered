@@ -31,11 +31,3 @@ services:
     depends_on:
       - api
       - astro-app
-
-  cloudflared:
-    image: cloudflare/cloudflared
-    command: tunnel run
-    environment:
-      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
-    depends_on:
-      - nginx
