@@ -1,6 +1,6 @@
 services:
   api:
-    image: ghcr.io/yourusername/yourrepo-api:latest
+    image: ghcr.io/kishanhitk/overengineered-api:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -9,7 +9,7 @@ services:
       - REDIS_URL=dicedb:7379
 
   astro-app:
-    image: ghcr.io/yourusername/yourrepo-astro:latest
+    image: ghcr.io/kishanhitk/overengineered-astro:latest
     ports:
       - "4321:4321"
     depends_on:
