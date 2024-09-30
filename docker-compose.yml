@@ -7,6 +7,7 @@ services:
       - dicedb
     environment:
       - REDIS_URL=dicedb:7379
+    restart: always
 
   astro-app:
     image: ghcr.io/kishanhitk/overengineered-astro:latest
@@ -17,12 +18,13 @@ services:
     environment:
       - PUBLIC_API_BASE_URL=https://api-overengineered.kishans.in
       - API_BASE_URL_INTERNAL=http://api:8080
+    restart: always
 
   dicedb:
     image: dicedb/dicedb
     ports:
       - "7379:7379"
-
+    restart: always
   nginx:
     image: nginx:alpine
     ports:
@@ -32,3 +34,4 @@ services:
     depends_on:
       - api
       - astro-app
+    restart: always

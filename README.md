@@ -201,3 +201,6 @@ Also, our API has evolved now. It stores requests to greetings in DB and it also
 We use redis to cache this count.
 
 But we have a problem now. The redis DB docker service is not set as systemd and will stop if server restarts.
+
+
+## Docker
