@@ -2,7 +2,7 @@ name: Build, Push, and Deploy
 
 on:
   push:
-    branches: [docker]
+    branches: [main, docker]
 
 env:
   REGISTRY: ghcr.io
