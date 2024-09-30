@@ -203,4 +203,296 @@ We use redis to cache this count.
 But we have a problem now. The redis DB docker service is not set as systemd and will stop if server restarts.
 
 
-## Docker
+## Docker - Week 2
+
+Now it is time to introduce docker. Right now our system had many parts, the astro app, the go api, dicedb, ngnix. And during deploy we used to build and place the build outputs in the server machine.
+But now, to make things simpler, and more controlled, we will package each of our services into a separate docker container and will create our docker stack in the docker-compose.yml.
+And, now instead of gh actions building and putting the build output in the server, it will build a docker image with the build instructions and will push to ghrc (we are not using docker hub because hosting private docker image is not free there ). 
+So, this is how our docker images looks like
+```
+# Build stage
+FROM golang:1.23-alpine AS builder
+RUN apk add --no-cache gcc musl-dev
+WORKDIR /app
+COPY api/go.mod api/go.sum ./
+RUN go mod download
+COPY api/ .
+RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main .
+
+# Final stage
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /app/main .
+EXPOSE 8080
+CMD ["./main"]
+```
+This is for the go api. Notice here we are using multistages. The main benefit of multi-stage builds is to create a smaller final image. In this case, we use a larger image (golang:1.23-alpine) with all the build tools to compile the Go application, but the final image is based on a minimal alpine image, containing only the necessary runtime dependencies and the compiled binary.
+
+```
+# Use an official Bun runtime as a parent image
+FROM oven/bun:1
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and bun.lockb (if you're using bun.lockb)
+COPY website/package.json website/bun.lockb* ./
+
+# Install dependencies
+RUN bun install --frozen-lockfile
+
+# Copy the rest of the application code
+COPY website/ .
+
+# Build the Astro app
+RUN bun run build
+
+# Expose the port the app runs on
+EXPOSE 4321
+
+# Run the app
+CMD ["bun", "run", "start"]
+```
+
+And, this is our astro app docker image.
+And finally to combine all of these, we have our docker-compose file
+```
+services:
+  api:
+    image: ghcr.io/kishanhitk/overengineered-api:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dicedb
+    environment:
+      - REDIS_URL=dicedb:7379
+    restart: always
+
+  astro-app:
+    image: ghcr.io/kishanhitk/overengineered-astro:latest
+    ports:
+      - "4321:4321"
+    depends_on:
+      - api
+    environment:
+      - PUBLIC_API_BASE_URL=https://api-overengineered.kishans.in
+      - API_BASE_URL_INTERNAL=http://api:8080
+    restart: always
+
+  dicedb:
+    image: dicedb/dicedb
+    ports:
+      - "7379:7379"
+    restart: always
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+      - astro-app
+    restart: always
+```
+
+Here, we specify all the container we need, along with the images. We have added restart:always so that the container restarts automatically when it crashed or when the host server restarts without explicitly creating a systemd. We have used internal networking for the containers to communicate with each other. We are also paasing some env varibale to astro container. Notice we have two different API base url. This is because if some API call is made on the astro server, then it will go directly to the go api container, but id an API call is made from the astro client on user's browser, it will go the deployed version of the API.
+
+
+To deploy we will first install docker and docker compose on our server. And when we run docker compose up in the directory where we added our docker-compose file, docker will pull all the images and create containers based on the config we provided. 
+We will also add a ngnix file in the same folder that will be copied to the ngnix container.
+```
+user nginx;
+worker_processes auto;
+worker_rlimit_nofile 65535;
+
+events {
+    worker_connections 1024;
+    multi_accept on;
+    use epoll;
+}
+
+http {
+    charset utf-8;
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    server_tokens off;
+    log_not_found off;
+    types_hash_max_size 2048;
+    client_max_body_size 16M;
+
+    # MIME
+    include mime.types;
+    default_type application/octet-stream;
+
+    # Logging
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
+
+    # SSL
+    # ssl_protocols TLSv1.2 TLSv1.3;
+    # ssl_prefer_server_ciphers on;
+    # ssl_session_cache shared:SSL:10m;
+    # ssl_session_timeout 10m;
+
+    # Compression
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css text/xml application/json application/javascript application/rss+xml application/atom+xml image/svg+xml;
+
+    # Cache settings
+    proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;
+
+    # API Server
+    server {
+        listen 80;
+        server_name api-overengineered.kishans.in;
+
+        location / {
+            proxy_pass http://api:8080;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_cache my_cache;
+            proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
+            proxy_cache_lock on;
+            add_header X-Cache-Status $upstream_cache_status;
+        }
+
+        # Security headers
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+        add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    }
+
+    # Astro App Server
+    server {
+        listen 80;
+        server_name overengineered.kishans.in;
+
+        location / {
+            proxy_pass http://astro-app:4321;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # Static file caching
+        location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+            expires 30d;
+            add_header Cache-Control "public, no-transform";
+        }
+
+        # Security headers
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+        add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    }
+}
+```
+
+This time we have added a bunch of configurations to the ngnix config, like gzip enable, caching, etc.
+
+And this is our gh action script
+```
+name: Build, Push, and Deploy
+
+on:
+  push:
+    branches: [main, docker]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-images:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push API image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: api/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-api:latest
+
+      - name: Build and push Astro image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: website/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-astro:latest
+
+  deploy:
+    needs: build-and-push-images
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy docker-compose file to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "docker-compose.yml"
+          target: "/var/www/overengineered"
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/overengineered
+            docker compose down
+            docker compose pull
+            docker compose up -d
+            docker image prune -f
+
+```
+
+We also removed cloudflare tunnel and added our domain directly to the vps from digital ocean dashboard.
+Now, the requests go to DNS which resovled to our VPS IP adderss and on our VPS ngnix handles the requests and sends it to the correct ports running on the containers.
+This works perfecly fine.
+Althoug we did some load testing and saw the performance has decreased, compared to non-docker version. Maybe this is becuase of some overhead that docker brings. We will see how can we minimise that.
+
+Now, this looks good. But, what if we receive a lot of traffic and our single VPS is unable to handle the load and we need to scale horizontally. Maybe its time to think about load balancing or container management with Kubernetes...
+
